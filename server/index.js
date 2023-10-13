@@ -1,21 +1,25 @@
-require('dotenv').config();
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
 const app = express();
 const cors = require("cors");
-const connection = require('./db');
-const userRoutes = require('./routes/users');
-const authRoutes = require('./routes/auth');
+const connection = require("./db");
+const userRoutes = require("./routes/users.js");
+const authRoutes = require("./routes/auth.js");
+const passwordResetRoutes = require("./routes/passwordReset.js");
 
-// Database connection
+
+// database connection
 connection();
 
-// Middlewares
+// middlewares
 app.use(express.json());
 app.use(cors());
 
-// Routes
-app.use('/api/users', userRoutes);
-app.use('/api/auth', authRoutes); // Added '/' before 'api/auth'
+// routes
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/password-reset", passwordResetRoutes);
 
-const port = process.env.PORT || 8080; // Use uppercase 'PORT'
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+
+const port = process.env.PORT || 8080;
+app.listen(port, console.log(`Listening on port ${port}...`));
