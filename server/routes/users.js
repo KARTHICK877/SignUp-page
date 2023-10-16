@@ -5,6 +5,9 @@ const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail.js");
 const bcrypt = require("bcrypt");
 
+
+//  Register Route
+
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -22,6 +25,8 @@ router.post("/", async (req, res) => {
 
 		user = await new User({ ...req.body, password: hashPassword }).save();
 
+		//  EMAIL Send Verification Link
+
 		const token = await new Token({
 			userId: user._id,
 			token: crypto.randomBytes(32).toString("hex"),
@@ -37,6 +42,8 @@ router.post("/", async (req, res) => {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
 });
+
+// EMAIL  Verify Link
 
 router.get("/:id/verify/:token/", async (req, res) => {
 	try {

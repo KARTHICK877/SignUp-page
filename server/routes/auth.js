@@ -6,6 +6,7 @@ const sendEmail = require("../utils/sendEmail.js");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
 
+// Login Route
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -22,6 +23,8 @@ router.post("/", async (req, res) => {
 		);
 		if (!validPassword)
 			return res.status(401).send({ message: "Invalid Email or Password" });
+		
+		// EMAIL 	Resend link 
 
 		if (!user.verified) {
 			let token = await Token.findOne({ userId: user._id });
