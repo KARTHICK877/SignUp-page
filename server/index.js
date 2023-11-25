@@ -27,7 +27,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/password-reset", passwordResetRoutes);
 app.use(formData.parse())
 app.use('/api', formRoutes);
-app.get("/api/welcome", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).send({ message: "Welcome to my sign-up page!" });
 });
 
