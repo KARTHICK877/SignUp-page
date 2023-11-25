@@ -27,9 +27,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/password-reset", passwordResetRoutes);
 app.use(formData.parse())
 app.use('/api', formRoutes);
-app.get("/", (req, res) => {
-  res.status(200).send({ message: "Welcome to my sign-up page!" });
-});
 
+app.get("/" , (req, res)=> {
+  res.send("welcome to my sign-up page!")
+})
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));
