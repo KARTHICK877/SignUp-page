@@ -16,7 +16,7 @@ const Main = () => {
     try {
       const formData = new FormData(formRef.current);
 
-      const response = await fetch('http://localhost:8080/api/submit-form', {
+      const response = await fetch('https://sign-up-page-9jr1.onrender.com/api/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -29,7 +29,7 @@ const Signup = () => {
     }
 
     try {
-      const url = "http://localhost:8080/api/users";
+      const url = "https://sign-up-page-9jr1.onrender.com/api/users";
       const { data: res } = await axios.post(url, data);
       setMsg(res.message);
 
