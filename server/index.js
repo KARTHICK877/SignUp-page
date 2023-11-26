@@ -25,7 +25,11 @@ app.use((err, req, res, next) => {
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/password-reset", passwordResetRoutes);
+
+// Additional middleware for handling form data
 app.use(formData.parse())
+
+
 app.use('/api', formRoutes);
 
 app.get("/" , (req, res)=> {
