@@ -82,8 +82,8 @@ const Signup = () => {
               onChange={handleChange}
               value={data.firstName}
               required
-              className={styles.input}
-            />
+              className="form-control mt-3"
+            /> 
             <input
               type="text"
               placeholder="Last Name"
@@ -91,7 +91,7 @@ const Signup = () => {
               onChange={handleChange}
               value={data.lastName}
               required
-              className={styles.input}
+              className="form-control mt-3"
             />
             <input
               type="email"
@@ -100,7 +100,7 @@ const Signup = () => {
               onChange={handleChange}
               value={data.email}
               required
-              className={styles.input}
+              className="form-control mt-3"
             />
             <input
               type="password"
@@ -109,7 +109,7 @@ const Signup = () => {
               onChange={handleChange}
               value={data.password}
               required
-              className={styles.input}
+              className="form-control mt-3"
             />
             <input
               type="password"
@@ -118,7 +118,7 @@ const Signup = () => {
               onChange={handleChange}
               value={data.confirmPassword}
               required
-              className={styles.input}
+              className="form-control mt-3"
             />
             {error && <div className={styles.error_msg}>{error}</div>}
             {msg && <div className={styles.success_msg}>{msg}</div>}

@@ -63,7 +63,7 @@ const Login = () => {
               onChange={handleChange}
               value={data.email}
               required
-              className={styles.input}
+			  className="form-control mt-3"
             />
             <input
               type="password"
@@ -72,7 +72,7 @@ const Login = () => {
               onChange={handleChange}
               value={data.password}
               required
-              className={styles.input}
+              className="form-control mt-3"
             />
             {/* <Link to="/forgot-password" style={{ alignSelf: "flex-start" }}>
               <p style={{ padding: "0 15px" }}>Forgot Password ?</p>

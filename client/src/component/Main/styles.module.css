@@ -1,16 +1,19 @@
 .navbar {
 	width: 100%;
 	height: 70px;
-	background-color: #3bb19b;
+	background-color: #f7f7f7;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
 .navbar h1 {
-	color: white;
+	/* color: #3bb19b; */
 	font-size: 25px;
 	margin-left: 20px;
+	
+	border:thin;
+	/* border-radius: 1rem; */
 }
 
 .white_btn {
@@ -38,10 +41,11 @@ video{
 
 }
 .form_container{
-
-	width: min-content;
+ /* background-color: #ffffff; */
+	width: min-content ;
+	
 	position: absolute;
-   top:30%;
+   top:20%;
    left: 20%;
    
 }
@@ -70,7 +74,14 @@ video{
 	margin: 10px auto;
 }
 label{
-	color: rgb(209, 207, 207);
+	color: rgb(42, 41, 41);
 	font-weight: bolder;
 	
 }
+
+.signup_container{
+
+	background-color: #3bb19b;
+	text-decoration: underline;
+}
+

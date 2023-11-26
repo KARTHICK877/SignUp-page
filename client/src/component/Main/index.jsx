@@ -58,10 +58,10 @@ const Main = () => {
   };
 
   return (
-    <div className={styles.main_container}>
+    <div  className={styles.signup_container}>
       <nav className={styles.navbar}>
         <h1>
-          <span style={{ color: 'GrayText' }}> K</span>
+          <span style={{ color: 'RED' }}> K</span>
           <span style={{ color: 'black' }}>A</span>
           <span style={{ color: 'BLUE' }}>R</span>
           <span style={{ color: 'GREEN' }}>T</span>
@@ -76,12 +76,7 @@ const Main = () => {
         <video src="./video/Welcome.mp4" autoPlay loop muted></video>
         <form className={styles.form_container} onSubmit={handleSubmit} ref={formRef}>
           {/* Add your form fields here */}
-          <h1>
-            Welcome{' '}
-            <span style={{ color: 'red' }}>U</span>
-            <span style={{ color: 'yellow' }}>S</span>
-            <span style={{ color: 'pink' }}>E</span>
-            <span style={{ color: 'blue' }}>R</span>
+          <h1 className='head' style={{textDecoration:"underline"}}>Welcome USER:
           </h1>
           <label htmlFor="age">Age</label>
           <input type="number" id="age" placeholder="Age" name="age" required className={styles.input} />
