@@ -1,3 +1,4 @@
+/* Default styles for larger screens */
 .login_container {
 	width: 100%;
 	min-height: 100vh;
@@ -5,18 +6,18 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.login_form_container {
+  }
+  
+  .login_form_container {
 	width: 900px;
 	height: 500px;
 	display: flex;
 	border-radius: 10px;
 	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
-		0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
-}
-
-.left {
+	  0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  }
+  
+  .left {
 	flex: 2;
 	display: flex;
 	flex-direction: column;
@@ -25,20 +26,20 @@
 	background-color: white;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
-}
-
-.form_container {
+  }
+  
+  .form_container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-.form_container h1 {
+  }
+  
+  .form_container h1 {
 	font-size: 40px;
 	margin-top: 0;
-}
-
-.input {
+  }
+  
+  .input {
 	outline: none;
 	border: none;
 	width: 370px;
@@ -47,9 +48,9 @@
 	background-color: #edf5f3;
 	margin: 5px 0;
 	font-size: 14px;
-}
-
-.error_msg {
+  }
+  
+  .error_msg {
 	width: 370px;
 	padding: 15px;
 	margin: 5px 0;
@@ -58,9 +59,9 @@
 	color: white;
 	border-radius: 5px;
 	text-align: center;
-}
-
-.right {
+  }
+  
+  .right {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -69,17 +70,17 @@
 	background-color: #3bb19b;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
-}
-
-.right h1 {
+  }
+  
+  .right h1 {
 	margin-top: 0;
 	color: white;
 	font-size: 40px;
 	align-self: center;
-}
-
-.white_btn,
-.green_btn {
+  }
+  
+  .white_btn,
+  .green_btn {
 	border: none;
 	outline: none;
 	padding: 12px 0;
@@ -89,10 +90,75 @@
 	font-weight: bold;
 	font-size: 14px;
 	cursor: pointer;
-}
-
-.green_btn {
+  }
+  
+  .green_btn {
 	background-color: #3bb19b;
 	color: rgb(255, 255, 255);
 	margin: 10px;
-}
+  }
+  
+  /* Media query for smaller screens (e.g., iPhone SE) */
+  @media (max-width: 320px) {
+	.login_form_container {
+	  width: 100%;
+	  border-radius: 0;
+	  box-shadow: none;
+	}
+  
+	.left,
+	.right {
+	  border-radius: 0;
+	}
+  
+	.input {
+	  width: 100%;
+	}
+  }
+  
+  /* Add more media queries for other screen sizes as needed */
+  /* Styles for Phones (iPhone SE, iPhone 6/7/8, iPhone X, Pixel 2/2 XL, Galaxy S5) */
+@media (max-width: 320px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Phones (iPhone 6/7/8 Plus, iPhone XR, Pixel 2 XL, Galaxy S6/7/8) */
+  @media (min-width: 321px) and (max-width: 414px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Phones (iPhone X/XS, iPhone 11 Pro, Pixel 3/3 XL, Galaxy S9/S10) */
+  @media (min-width: 415px) and (max-width: 576px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Phones (iPhone 11, iPhone 11 Pro Max, Pixel 3a/3a XL, Galaxy S10e) */
+  @media (min-width: 577px) and (max-width: 667px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Phones (iPhone 12 mini, iPhone 12/12 Pro, Pixel 4a, Galaxy S20) */
+  @media (min-width: 668px) and (max-width: 724px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Phones (iPhone 12 Pro Max, Pixel 5, Galaxy S20+) */
+  @media (min-width: 725px) and (max-width: 767px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Larger Phones and Small Tablets (iPad Mini, Nexus 7, Galaxy Tab 7) */
+  @media (min-width: 768px) and (max-width: 991px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Tablets (iPad, Nexus 9, Galaxy Tab 10) */
+  @media (min-width: 992px) and (max-width: 1024px) {
+	/* Add your specific styles for this screen width */
+  }
+  
+  /* Styles for Larger Tablets and Desktops */
+  @media (min-width: 1025px) {
+	/* Add your specific styles for this screen width and larger */
+  }
+  

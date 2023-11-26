@@ -1,9 +1,12 @@
-// Main.jsx
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import { RingLoader } from 'react-spinners'; // Import the spinner component
 import styles from './styles.module.css';
 
 const Main = () => {
   const formRef = useRef(null);
+  const [loading, setLoading] = useState(false); // State for the loading spinner
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -12,6 +15,9 @@ const Main = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Start the loading spinner
+    setLoading(true);
 
     try {
       const formData = new FormData(formRef.current);
@@ -34,14 +40,20 @@ const Main = () => {
       console.log('Response JSON:', result);
 
       if (response.ok) {
-        alert(result.message);
+        // Show a success toast
+        toast.success(result.message);
         formRef.current.reset(); // Reset the form
       } else {
-        alert(`Error: ${result.message}`);
+        // Show an error toast
+        toast.error(`Error: ${result.message}`);
       }
     } catch (error) {
       console.error(error);
-      alert('An error occurred while submitting the form. Please try again.');
+      // Show an error toast
+      toast.error('An error occurred while submitting the form. Please try again.');
+    } finally {
+      // Stop the loading spinner whether the request is successful or not
+      setLoading(false);
     }
   };
 
@@ -90,11 +102,17 @@ const Main = () => {
           <label htmlFor="dateOfBirth">Date of Birth</label>
           <input type="date" id="dateOfBirth" placeholder="Date of Birth" name="dateOfBirth" required className={styles.input} />
 
-          <button type="submit" className={styles.green_btn}>
-            Submit
+          {/* Show the spinner when loading is true */}
+          <button type="submit" className={styles.green_btn} disabled={loading}>
+            {loading ? (
+              <RingLoader color={"#ffffff"} loading={loading} size={25} />
+            ) : (
+              "Submit"
+            )}
           </button>
         </form>
       </nav>
+      <Toaster position="top-center" />
     </div>
   );
 };

@@ -1,18 +1,22 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { css } from "@emotion/react";
+import { RingLoader } from "react-spinners";
+import  { Toaster } from "react-hot-toast";
 import styles from "./styles.module.css";
-
+import toast from 'react-hot-toast';
 const Signup = () => {
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    confirmPassword: "", // New state for confirmation password
+    confirmPassword: "",
   });
   const [error, setError] = useState("");
   const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
@@ -28,10 +32,16 @@ const Signup = () => {
       return;
     }
 
+    // Start the loading spinner
+    setLoading(true);
+
     try {
       const url = "https://sign-up-page-9jr1.onrender.com/api/users";
       const { data: res } = await axios.post(url, data);
       setMsg(res.message);
+
+      // Show a success toast
+      toast.success("Signup successful!");
 
       navigate("/login");
     } catch (error) {
@@ -41,7 +51,13 @@ const Signup = () => {
         error.response.status <= 500
       ) {
         setError(error.response.data.message);
+
+        // Show an error toast
+        toast.error("Signup failed. Please check your information.");
       }
+    } finally {
+      // Stop the loading spinner whether the request is successful or not
+      setLoading(false);
     }
   };
 
@@ -106,14 +122,28 @@ const Signup = () => {
             />
             {error && <div className={styles.error_msg}>{error}</div>}
             {msg && <div className={styles.success_msg}>{msg}</div>}
-            <button type="submit" className={styles.green_btn}>
-              Sign Up
+            {/* Show the spinner when loading is true */}
+            <button type="submit" className={styles.green_btn} disabled={loading}>
+              {loading ? (
+                <RingLoader color={"#ffffff"} loading={loading} css={override} size={25} />
+              ) : (
+                "Sign Up"
+              )}
             </button>
           </form>
         </div>
+        <Toaster position="top-center" />
       </div>
+      {/* Toaster component to display toasts */}
+      <Toaster position="top-center" />
     </div>
   );
 };
 
 export default Signup;
+
+// CSS for the spinner
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
